@@ -1,0 +1,10 @@
+.form-title {
+  color: coral;
+}
+.package-from {
+  max-width: 450px;
+  background-color: rgb(7, 117, 136);
+}
+.btn-submit {
+  background-color: rgb(252, 134, 92);
+}

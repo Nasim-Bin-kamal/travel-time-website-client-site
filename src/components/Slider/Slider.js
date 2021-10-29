@@ -14,7 +14,7 @@ const Slider = () => {
                     />
                     <Carousel.Caption className="caption">
                         <h1>Amazing Tour All Over The World</h1>
-                        <p>Travel all the world's best place with best deals.</p>
+                        <p className="fs-4">Travel all the world's best place with best deals.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -26,7 +26,7 @@ const Slider = () => {
 
                     <Carousel.Caption className="caption">
                         <h1>Travel and Adventures</h1>
-                        <p>Where would you like to go?.</p>
+                        <p className="fs-4">Where would you like to go?.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -38,7 +38,7 @@ const Slider = () => {
 
                     <Carousel.Caption className="caption">
                         <h1>Find Your Next Tours</h1>
-                        <p>Plan your favourite destination.</p>
+                        <p className="fs-4">Plan your favourite destination.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
