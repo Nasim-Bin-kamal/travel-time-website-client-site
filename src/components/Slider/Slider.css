@@ -1,0 +1,13 @@
+.slider-img {
+  background-blend-mode: overlay;
+}
+
+@media screen and (min-width: 769px) {
+  .caption {
+    height: calc(100vh - 300px);
+  }
+  .caption h1 {
+    font-size: 56px;
+    font-weight: 700;
+  }
+}
