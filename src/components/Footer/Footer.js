@@ -65,7 +65,7 @@ const Footer = () => {
                                 Subscribe
                             </Button>
                         </InputGroup>
-                        <p>We are always promised to provide best services for our clients.</p>
+                        <p>Subscribe To Our Newsletter For Latest Update</p>
                     </Col>
 
                 </Row>

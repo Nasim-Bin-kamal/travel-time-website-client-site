@@ -1,9 +1,15 @@
 import React from 'react';
 import { Card, Col, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import './TourPackage.css';
 
 const TourPackage = ({ tourPackage }) => {
+    const history = useHistory();
     const { packageName, packagePrice, spendDays, image, rating } = tourPackage || {};
+
+    const handleBookingPackage = (id) => {
+        history.push(`/packages/booking/${id}`);
+    }
     return (
         <div>
             <Col className="mx-auto">
@@ -19,7 +25,7 @@ const TourPackage = ({ tourPackage }) => {
                         <Card.Title className="fs-4 py-2"><i className="fas fa-map-marker-alt text-secondary"></i> <span className="title">{packageName}</span></Card.Title>
                         <div className="d-flex justify-content-between align-items-center">
                             <p><i className="fas fa-star pt-3"></i> <span className="text-secondary">{rating} Superb</span></p>
-                            <Button className="border-0  btn-book" variant="light"><i className="far fa-check-circle"></i> Book Now</Button>
+                            <Button onClick={() => handleBookingPackage(tourPackage?._id)} className="border-0  btn-book" variant="light"><i className="far fa-check-circle"></i> Book Now</Button>
                         </div>
                     </Card.Body>
                 </Card>

@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import About from './pages/About/About';
 import AddPackage from './pages/AddPackage/AddPackage';
+import Booking from './pages/Booking/Booking';
 import Home from './pages/Home/Home';
 import ManagePackages from './pages/ManagePackages/ManagePackages';
 import MyPackages from './pages/MyPackages/MyPackages';
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/myPackages">
             <MyPackages />
+          </Route>
+          <Route path="/packages/booking/:id">
+            <Booking />
           </Route>
           <Route path="/registerLogin">
             <RegisterLogin />
