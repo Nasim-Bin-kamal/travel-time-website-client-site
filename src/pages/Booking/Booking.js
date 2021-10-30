@@ -1,20 +1,56 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 import './Booking.css';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const Booking = () => {
+    const { user } = useAuth();
     const { id } = useParams();
     const [singlePackage, setSinglePackage] = useState({});
     const { packageName, packagePrice, spendDays, image, rating, description } = singlePackage || {};
+
+    const { register, handleSubmit, reset, setFocus, formState: { errors } } = useForm();
+
     useEffect(() => {
         const url = `http://localhost:5000/packages/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSinglePackage(data));
-    }, []);
+    }, [id]);
+
+    useEffect(() => {
+        setFocus("email")
+    }, [setFocus]);
+
+
+    const onSubmit = data => {
+        data.name = user?.displayName;
+        data.bookingStatus = "Pending";
+        data.bookedPackage = { ...singlePackage };
+        console.log(data);
+
+
+        axios.post('http://localhost:5000/bookings', data)
+            .then(res => {
+                // console.log(res.data);
+                if (res.data?.insertedId) {
+                    alert('Successfully Booked');
+                    reset();
+                }
+            })
+    };
+    console.log(errors);
+
+
+
+
+
+
     return (
         <div className="booking-section">
             <Container>
@@ -38,12 +74,31 @@ const Booking = () => {
                         </Col>
                     </Row>
                 </div>
-                <div>
-                    <h2 className="text-capitalize text-center mx-auto pb-5">If you want to book this package fill the form</h2>
+                <div className="mx-auto pb-5">
+                    <h2 className="text-capitalize text-center mx-auto py-3">Booking Form</h2>
+
+                    <div className="text-center mx-auto pb-3">
+                        <h5 className="user">Dear Sir, {user?.displayName}</h5>
+                        <p>If you want to book this travel package fill the form first</p>
+                    </div>
+
+                    <div className="booking-form mx-auto p-3 rounded-3 shadow-sm">
+
+                        <form className=" mx-auto d-flex justify-content-center align-items-center flex-column w-100" onSubmit={handleSubmit(onSubmit)}>
+                            {/* <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="text" placeholder="First name" {...register("name", { required: true, maxLength: 80 })} value={user?.displayName || ""} muted /> */}
+                            <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="email" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} value={user?.email || ""} muted />
+                            <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="tel" placeholder="Mobile number" {...register("mobileNumber", { required: true, minLength: 6, maxLength: 12 })} />
+                            <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="date" placeholder="Travel Date" {...register("travelDate", { required: true })} />
+                            <textarea className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" placeholder="Enter Your Address" {...register("address", { required: true })} />
+
+                            <Button className="btn-submit border-0 fw-bold px-3 w-50 mt-3" variant="success" type="submit">Submit</Button>
+                        </form>
+                    </div>
+
 
                 </div>
-            </Container>
-        </div>
+            </Container >
+        </div >
     );
 };
 

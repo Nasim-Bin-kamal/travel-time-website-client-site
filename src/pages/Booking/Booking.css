@@ -1,6 +1,14 @@
 .booking-section {
   background-color: #ebe8e8b7;
 }
-.title {
+.title,
+.user {
   color: coral;
+}
+.booking-form {
+  max-width: 450px;
+  background-color: rgb(240, 208, 204);
+}
+.btn-submit {
+  background-color: rgb(252, 134, 92);
 }

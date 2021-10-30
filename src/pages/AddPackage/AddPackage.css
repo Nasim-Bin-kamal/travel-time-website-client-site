@@ -3,7 +3,8 @@
 }
 .package-from {
   max-width: 450px;
-  background-color: rgb(7, 117, 136);
+  /* background-color: rgba(7, 117, 136, 0.781); */
+  background-color: rgb(235, 203, 203);
 }
 .btn-submit {
   background-color: rgb(252, 134, 92);

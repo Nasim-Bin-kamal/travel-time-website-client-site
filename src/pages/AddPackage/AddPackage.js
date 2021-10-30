@@ -34,7 +34,7 @@ const AddPackage = () => {
                         <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="text" placeholder="Rating" {...register("rating", { required: true })} />
                         <textarea className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" placeholder="Package Description" {...register("description", { required: true })} />
 
-                        <Button className="btn-submit border-0 fw-bold px-3 w-50 mt-3" variant="outline-light" type="submit">Submit</Button>
+                        <Button className="btn-submit border-0 fw-bold px-3 w-50 mt-3" variant="success" type="submit">Submit</Button>
                     </form>
                 </div>
 
