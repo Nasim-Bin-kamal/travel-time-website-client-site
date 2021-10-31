@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import AuthProvider from './context/AuthProvider';
 import About from './pages/About/About';
 import AddPackage from './pages/AddPackage/AddPackage';
 import Booking from './pages/Booking/Booking';
+import Contact from './pages/Contact/Contact';
 import Home from './pages/Home/Home';
 import ManagePackages from './pages/ManagePackages/ManagePackages';
 import MyPackages from './pages/MyPackages/MyPackages';
@@ -29,18 +31,21 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route exact path="/add/package">
+            <Route path="/contact">
+              <Contact />
+            </Route>
+            <PrivateRoute exact path="/add/package">
               <AddPackage />
-            </Route>
-            <Route path="/manage">
+            </PrivateRoute>
+            <PrivateRoute path="/manage">
               <ManagePackages />
-            </Route>
-            <Route path="/myPackages">
+            </PrivateRoute>
+            <PrivateRoute path="/myPackages">
               <MyPackages />
-            </Route>
-            <Route path="/packages/booking/:id">
+            </PrivateRoute>
+            <PrivateRoute path="/packages/booking/:id">
               <Booking />
-            </Route>
+            </PrivateRoute>
             <Route path="/registerLogin">
               <RegisterLogin />
             </Route>

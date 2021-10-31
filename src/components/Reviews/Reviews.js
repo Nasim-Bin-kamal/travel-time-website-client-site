@@ -8,7 +8,7 @@ const Reviews = () => {
             <Container>
                 <div className="text-center mx-auto">
                     <h5 className="short-info">Testimonials and reviews</h5>
-                    <h2 className="text-secondary fw-bold">What They’re Saying About Us</h2>
+                    <h2 className="text-secondary fw-bold">What They’re Saying</h2>
                 </div>
                 <div>
                     <Row xs={1} md={2} lg={3} className="mx-auto py-5">

@@ -5,38 +5,34 @@ import './ManagePackages.css';
 
 const ManagePackages = () => {
     const [bookedPackages, setBookedPackages] = useState([]);
-    const [singleBookedPackage, setSingleBookedPackage] = useState({});
+    const [modifiedCount, setModifiedCount] = useState(0);
+
     useEffect(() => {
         fetch('http://localhost:5000/bookings')
             .then(res => res.json())
-            .then(data => setBookedPackages(data));
-    }, []);
-
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/bookings/${id}`;
-    //     fetch(url)
-    //     .then(res=>res.json())
-
-    // }, []);
-
-
+            .then(data => {
+                setBookedPackages(data);
+                setModifiedCount(0);
+            });
+    }, [modifiedCount]);
 
     const handleApprovedBooking = (id) => {
-        const findPackage = bookedPackages.find(bookedPackage => bookedPackage._id === id);
-        setSingleBookedPackage(findPackage);
 
-        const updatedPackage = { ...singleBookedPackage };
-        updatedPackage.bookingStatus = "Approved";
-        setSingleBookedPackage(updatedPackage);
+        const data = { bookingStatus: "Approved" };
 
-        const url = `http://localhost:5000/bookings/update/${id}`;
-        axios.put(url, singleBookedPackage)
-            .then(res => {
-                console.log(res.data);
-                // if (res.data.modifiedCount > 0) {
-                //     alert('Updated Successfully');
-                // }
-            });
+        const proceed = window.confirm('Are you want to APPROVE this booking');
+        if (proceed) {
+            const url = `http://localhost:5000/bookings/update/${id}`;
+            axios.put(url, data)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.modifiedCount > 0) {
+                        alert('Updated Successfully');
+                        setModifiedCount(res.data.modifiedCount)
+
+                    }
+                });
+        }
 
     }
     const handleCancelBooking = (id) => {
@@ -58,7 +54,7 @@ const ManagePackages = () => {
         <div>
             <Container>
                 <div className="text-center mx-auto py-3">
-                    <h2 className="title">Manage All Packages</h2>
+                    <h2 className="title">Manage Booked Packages</h2>
                     <h4 className="text-secondary">Total Booked Packages: <strong>{bookedPackages.length}</strong></h4>
                 </div>
                 <div className="mx-auto my-5">

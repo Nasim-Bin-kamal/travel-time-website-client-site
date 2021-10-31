@@ -28,7 +28,7 @@ const useFirebase = () => {
         }).then(() => {
             // const newUser = { ...user, displayName: name };
             // setUser(newUser);
-            window.location.reload();
+            // window.location.reload();
         }).catch(error => {
             setErrorMsg(error.message);
         });
@@ -40,6 +40,14 @@ const useFirebase = () => {
             .then(() => {
                 //email verification sent
             });
+    }
+
+
+    //sign in with email and password
+    const singInProcess = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+
     }
 
     //implement sign out user 
@@ -67,13 +75,6 @@ const useFirebase = () => {
         });
         return () => unsubscribed;
     }, [auth]);
-
-    //sign in with email and password
-    const singInProcess = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
-
-    }
 
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider);

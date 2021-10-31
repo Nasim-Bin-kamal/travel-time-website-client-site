@@ -23,9 +23,10 @@ const Header = () => {
                         <Nav className="me-auto">
                             <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/home">Home</NavLink>
                             <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/about">About</NavLink>
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/add/package">Add Package</NavLink>
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/manage">Manage Packages</NavLink>
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/myPackages">My Packages</NavLink>
+                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/contact">Contact</NavLink>
+                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/add/package">Add Package</NavLink>}
+                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/manage">Manage Packages</NavLink>}
+                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/myPackages">My Packages</NavLink>}
                         </Nav>
                         <Nav>
                             {

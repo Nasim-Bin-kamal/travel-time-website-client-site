@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import './RegisterLogin.css';
 
@@ -7,6 +8,9 @@ const RegisterLogin = () => {
     const { setUser, setUserName, singInProcess, verifyEmail, setErrorMsg, setLoading, errorMsg, signInWithGoogle, signInWithGithub, newUserRegistration } = useAuth();
 
     const [isRegistration, setIsRegistration] = useState(false);
+    const location = useLocation();
+    const redirectUrl = location.state?.from || "/home";
+    const history = useHistory();
 
 
     const nameRef = useRef();
@@ -38,11 +42,12 @@ const RegisterLogin = () => {
         newUserRegistration(email, password)
             .then(result => {
                 console.log('registration success')
-                // history.push(redirectUrl);
+                history.push(redirectUrl);
                 setUserName(name);
                 setUser(result?.user);
                 setErrorMsg('');
                 verifyEmail();
+                window.location.reload();
             }).catch(error => {
                 setErrorMsg(error.message);
             }).finally(() => setLoading(false));
@@ -53,7 +58,7 @@ const RegisterLogin = () => {
         singInProcess(email, password)
             .then(result => {
                 //signed in.
-                // history.push(redirectUrl);
+                history.push(redirectUrl);
                 setUser(result?.user);
                 setErrorMsg('');
             }).catch(error => {
@@ -65,7 +70,7 @@ const RegisterLogin = () => {
         signInWithGoogle()
             .then(result => {
 
-                // history.push(redirectUrl);
+                history.push(redirectUrl);
             }).catch(error => {
                 setErrorMsg(error.message);
             }).finally(() => setLoading(false));
@@ -74,7 +79,7 @@ const RegisterLogin = () => {
     const handleGithubSignIn = () => {
         signInWithGithub()
             .then(result => {
-                // history.push(redirectUrl);
+                history.push(redirectUrl);
             }).catch(error => {
                 setErrorMsg(error.message);
             }).finally(() => setLoading(false));
