@@ -4,14 +4,14 @@ Project Live Site [Travel Time](https://travel-time-application.web.app/).
 
 ## Project Overview
 
-- This project is based on healthcare.
-- It is a Clinic App.
-- User can see which types of services are provided here.
+- This project is based on Tourism and hospitality.
+- It is a Travel agency website.
+- User can book packages and also see his/her booking package with booking status.
 - It has login and register system.
 - It includes firebase authentication.
 
 ### Project Description
 
-Our Clinic, an organized medical service offering diagnostic, therapeutic, or preventive outpatient services. Often, the term covers an entire medical teaching centre, including the hospital and the outpatient facilities. The medical care offered by a clinic may or may not be connected with a hospital.
+Our travel agency is a private retailer or public service that provides travel and tourism-related services to the general public on behalf of accommodation or travel suppliers to offer different kinds of travelling packages for each destination.
 
-The term clinic may be used to designate all the activities of a general clinic or only a particular division of the work— e.g., the psychiatric clinic, neurology clinic, or surgery clinic. The entire activity when connected with a hospital is typically called the outpatient department, and the specific subdivisions may be referred to as clinics.
+Right now it is in development phase. Wee will add more functionalities in future.
