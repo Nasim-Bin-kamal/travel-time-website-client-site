@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 import './Slider.css';
 
 const Slider = () => {
@@ -15,6 +15,7 @@ const Slider = () => {
                     <Carousel.Caption className="caption">
                         <h1>Amazing Tour All Over The World</h1>
                         <p className="fs-4">Travel all the world's best place with best deals.</p>
+                        <Button className="text-white border border-2 px-4 py-2 slider-btn" variant="outside-light">Read More <i class="fas fa-angle-double-right"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -27,6 +28,7 @@ const Slider = () => {
                     <Carousel.Caption className="caption">
                         <h1>Travel and Adventures</h1>
                         <p className="fs-4">Where would you like to go?.</p>
+                        <Button className="text-white border border-2 px-4 py-2 slider-btn" variant="outside-light">Read More <i class="fas fa-angle-double-right"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -39,6 +41,7 @@ const Slider = () => {
                     <Carousel.Caption className="caption">
                         <h1>Find Your Next Tours</h1>
                         <p className="fs-4">Plan your favourite destination.</p>
+                        <Button className="text-white border border-2 px-4 py-2 slider-btn" variant="outside-light">Read More <i class="fas fa-angle-double-right"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

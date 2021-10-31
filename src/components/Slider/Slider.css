@@ -1,15 +1,31 @@
 .slider-img {
   background-blend-mode: overlay;
 }
+.slider-btn {
+  border: 2px;
+  border-color: coral;
+}
+.slider-btn:hover {
+  color: black;
+  background-color: rgba(247, 107, 56, 0.89);
+}
+
 @media screen and (max-width: 576px) {
+  .carousel-item img {
+    background-position: fixed;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+  }
+
   .caption h1 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
   }
 }
 @media screen and (min-width: 769px) {
   .caption {
-    margin-bottom: 180px;
+    margin-bottom: 120px;
   }
   .caption h1 {
     font-size: 56px;
