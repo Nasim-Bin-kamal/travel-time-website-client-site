@@ -17,7 +17,7 @@ const Booking = () => {
     const { register, handleSubmit, reset, setFocus, formState: { errors } } = useForm();
 
     useEffect(() => {
-        const url = `http://localhost:5000/packages/${id}`;
+        const url = `https://dark-blood-03727.herokuapp.com/packages/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSinglePackage(data));
@@ -35,7 +35,7 @@ const Booking = () => {
         console.log(data);
 
 
-        axios.post('http://localhost:5000/bookings', data)
+        axios.post('https://dark-blood-03727.herokuapp.com/bookings', data)
             .then(res => {
                 // console.log(res.data);
                 if (res.data?.insertedId) {
@@ -85,7 +85,7 @@ const Booking = () => {
                     <div className="booking-form mx-auto p-3 rounded-3 shadow-sm">
 
                         <form className=" mx-auto d-flex justify-content-center align-items-center flex-column w-100" onSubmit={handleSubmit(onSubmit)}>
-                            {/* <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="text" placeholder="First name" {...register("name", { required: true, maxLength: 80 })} value={user?.displayName || ""} muted /> */}
+
                             <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="email" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} value={user?.email || ""} muted />
                             <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="tel" placeholder="Mobile number" {...register("mobileNumber", { required: true, minLength: 6, maxLength: 12 })} />
                             <input className="w-100  mx-auto my-2 p-1 border border-2 rounded-3" type="date" placeholder="Travel Date" {...register("travelDate", { required: true })} />

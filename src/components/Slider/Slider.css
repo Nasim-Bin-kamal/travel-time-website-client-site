@@ -16,3 +16,14 @@
     font-weight: 700;
   }
 }
+.carousel-item::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(32, 32, 32, 0.808);
+  opacity: 0.5;
+}

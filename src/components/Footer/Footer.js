@@ -30,14 +30,12 @@ const Footer = () => {
                                 <NavLink className="menu-item" to="/about">About Us</NavLink>
                             </li>
                             <li>
-                                <NavLink className="menu-item" to="/add/package">Add Package</NavLink>
+                                <NavLink className="menu-item" to="/contact">Contact Us</NavLink>
                             </li>
                             <li>
-                                <NavLink className="menu-item" to="/manage">Manage Packages</NavLink>
+                                <NavLink className="menu-item" to="/registerLogin">Login</NavLink>
                             </li>
-                            <li>
-                                <NavLink className="menu-item" to="/myPackages">My Packages</NavLink>
-                            </li>
+
                         </ul>
                     </Col>
                     <Col>

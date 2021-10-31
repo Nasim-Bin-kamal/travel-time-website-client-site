@@ -7,7 +7,7 @@ const MyPackages = () => {
     const { user } = useAuth();
     const [bookedPackages, setBookedPackages] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch('https://dark-blood-03727.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => setBookedPackages(data));
 
@@ -17,7 +17,7 @@ const MyPackages = () => {
     // console.log(myPackages);
 
     const handleCancelBooking = (id) => {
-        const url = `http://localhost:5000/bookings/${id}`;
+        const url = `https://dark-blood-03727.herokuapp.com/bookings/${id}`;
         const proceed = window.confirm('Are you want to delete this package');
         if (proceed) {
             axios.delete(url)

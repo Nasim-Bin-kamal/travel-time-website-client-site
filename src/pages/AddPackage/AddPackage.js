@@ -8,7 +8,7 @@ const AddPackage = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/packages', data)
+        axios.post('https://dark-blood-03727.herokuapp.com/packages', data)
             .then(res => {
                 console.log(res.data);
                 if (res?.data?.insertedId) {

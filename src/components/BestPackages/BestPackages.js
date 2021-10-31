@@ -8,7 +8,7 @@ import './BestPackages.css';
 const BestPackages = () => {
     const [packages, setPackages] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/packages')
+        fetch('https://dark-blood-03727.herokuapp.com/packages')
             .then(res => res.json())
             .then(data => setPackages(data));
     }, []);

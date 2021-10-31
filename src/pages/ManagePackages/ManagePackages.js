@@ -8,7 +8,7 @@ const ManagePackages = () => {
     const [modifiedCount, setModifiedCount] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/bookings')
+        fetch('https://dark-blood-03727.herokuapp.com/bookings')
             .then(res => res.json())
             .then(data => {
                 setBookedPackages(data);
@@ -20,23 +20,20 @@ const ManagePackages = () => {
 
         const data = { bookingStatus: "Approved" };
 
-        const proceed = window.confirm('Are you want to APPROVE this booking');
-        if (proceed) {
-            const url = `http://localhost:5000/bookings/update/${id}`;
-            axios.put(url, data)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.modifiedCount > 0) {
-                        alert('Updated Successfully');
-                        setModifiedCount(res.data.modifiedCount)
+        const url = `https://dark-blood-03727.herokuapp.com/bookings/update/${id}`;
+        axios.put(url, data)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    alert('Updated Successfully');
+                    setModifiedCount(res.data.modifiedCount)
 
-                    }
-                });
-        }
+                }
+            });
 
     }
     const handleCancelBooking = (id) => {
-        const url = `http://localhost:5000/bookings/${id}`;
+        const url = `https://dark-blood-03727.herokuapp.com/bookings/${id}`;
         const proceed = window.confirm('Are you want to delete this package');
         if (proceed) {
             axios.delete(url)

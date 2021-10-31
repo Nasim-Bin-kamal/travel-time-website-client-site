@@ -8,15 +8,17 @@ import useAuth from '../../hooks/useAuth';
 const Header = () => {
     const { user, handleSignOut } = useAuth();
     const activeStyle = {
-        color: 'red',
-        fontWeight: '700'
+        color: 'coral',
+        fontWeight: '900'
     }
     return (
         <div>
             <Navbar collapseOnSelect bg="light" variant="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home" className="nav-brand me-5">
-                        <img className="img-fluid" src={logo} alt="" />
+                    <Navbar.Brand className="nav-brand me-5">
+                        <NavLink to="/home">
+                            <img className="img-fluid" src={logo} alt="" />
+                        </NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
