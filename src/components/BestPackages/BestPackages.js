@@ -1,17 +1,29 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
+import useAuth from '../../hooks/useAuth';
 import TourPackage from '../TourPackage/TourPackage';
 import './BestPackages.css';
 
 const BestPackages = () => {
     const [packages, setPackages] = useState([]);
+    const { loading } = useAuth();
+
     useEffect(() => {
         fetch('https://dark-blood-03727.herokuapp.com/packages')
             .then(res => res.json())
             .then(data => setPackages(data));
     }, []);
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center my-5 loading">
+                <Spinner className="" animation="grow" variant="danger" />
+                <Spinner className="" animation="grow" variant="warning" />
+                <Spinner className="" animation="grow" variant="success" />
+            </div>
+        )
+    }
 
     return (
         <div className="packages-section py-5">
