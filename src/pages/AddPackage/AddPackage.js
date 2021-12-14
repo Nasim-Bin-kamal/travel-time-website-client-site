@@ -19,10 +19,10 @@ const AddPackage = () => {
     };
     console.log(errors);
     return (
-        <div>
+        <div className='addPackage'>
             <Container>
                 <div className="text-center mx-auto my-2">
-                    <h1 className="form-title">Add A Tour Package</h1>
+                    <h2 className="form-title">Add A Tour Package</h2>
                     <h5 className="text-secondary">To add a package fill the require form fields</h5>
                 </div>
                 <div className="package-from mx-auto my-5 p-3 rounded-3 shadow-sm">

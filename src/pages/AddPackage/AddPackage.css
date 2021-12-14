@@ -1,9 +1,11 @@
+.addPackage {
+  margin-top: 70px;
+}
 .form-title {
   color: coral;
 }
 .package-from {
   max-width: 450px;
-  /* background-color: rgba(7, 117, 136, 0.781); */
   background-color: rgb(235, 203, 203);
 }
 .btn-submit {

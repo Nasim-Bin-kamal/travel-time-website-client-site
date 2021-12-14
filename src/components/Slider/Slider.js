@@ -5,7 +5,7 @@ import './Slider.css';
 const Slider = () => {
     return (
         <div>
-            <Carousel>
+            <Carousel className="carousel">
                 <Carousel.Item>
                     <img
                         className="d-block w-100 slider-img"
@@ -27,7 +27,7 @@ const Slider = () => {
 
                     <Carousel.Caption className="caption">
                         <h1>Travel and Adventures</h1>
-                        <p className="fs-4">Where would you like to go?.</p>
+                        <p className="fs-4">Where would you like to go?</p>
                         <Button className="text-white border border-2 px-4 py-2 slider-btn" variant="outside-light">Read More <i class="fas fa-angle-double-right"></i></Button>
                     </Carousel.Caption>
                 </Carousel.Item>

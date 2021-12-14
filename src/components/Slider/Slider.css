@@ -1,5 +1,7 @@
 .slider-img {
   background-blend-mode: overlay;
+  height: 100vh;
+  background-size: contain;
 }
 .slider-btn {
   border: 2px;
@@ -25,7 +27,7 @@
 }
 @media screen and (min-width: 769px) {
   .caption {
-    margin-bottom: 120px;
+    margin-bottom: 150px;
   }
   .caption h1 {
     font-size: 56px;

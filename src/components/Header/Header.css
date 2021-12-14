@@ -1,3 +1,10 @@
 .nav-brand {
   width: 230px;
 }
+.nav-link {
+  color: #1e6af7 !important;
+}
+.nav-link:hover {
+  color: coral !important;
+  font-weight: 900 !important;
+}

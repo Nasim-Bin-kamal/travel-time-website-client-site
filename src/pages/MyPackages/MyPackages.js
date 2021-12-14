@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
+import './MyPackages.css';
 
 const MyPackages = () => {
     const { user } = useAuth();
@@ -33,7 +34,7 @@ const MyPackages = () => {
     }
 
     return (
-        <div>
+        <div className='myPackages'>
             <Container>
                 <h2 className="text-center py-3 title">My Booked Packages</h2>
                 <div className="mx-auto my-5">

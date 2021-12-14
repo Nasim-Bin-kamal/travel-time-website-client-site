@@ -48,13 +48,13 @@ const ManagePackages = () => {
         }
     }
     return (
-        <div>
+        <div className='managePackage'>
             <Container>
                 <div className="text-center mx-auto py-3">
                     <h2 className="title">Manage Booked Packages</h2>
                     <h4 className="text-secondary">Total Booked Packages: <strong>{bookedPackages.length}</strong></h4>
                 </div>
-                <div className="mx-auto my-5">
+                <div className="mx-auto mt-4 mb-5">
                     <Table striped bordered hover responsive className="shadow-sm">
                         <thead className="text-center">
                             <tr>

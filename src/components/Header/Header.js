@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Button, NavDropdown } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Header.css'
 import logo from '../../utilities/logo1.png'
@@ -13,7 +13,7 @@ const Header = () => {
     }
     return (
         <div>
-            <Navbar collapseOnSelect bg="light" variant="light" expand="lg">
+            <Navbar collapseOnSelect bg="light" variant="light" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand className="nav-brand me-5">
                         <NavLink to="/home">
@@ -23,12 +23,16 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/home">Home</NavLink>
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/about">About</NavLink>
-                            <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/contact">Contact</NavLink>
-                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/add/package">Add Package</NavLink>}
-                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/manage">Manage Packages</NavLink>}
-                            {user.email && <NavLink className="mx-2 text-decoration-none" activeStyle={activeStyle} to="/myPackages">My Packages</NavLink>}
+                            <NavLink className="mx-2 mt-2 text-decoration-none" activeStyle={activeStyle} to="/home">Home</NavLink>
+                            <NavLink className="mx-2 mt-2 text-decoration-none" activeStyle={activeStyle} to="/about">About</NavLink>
+                            <NavLink className="mx-2 mt-2 text-decoration-none" activeStyle={activeStyle} to="/contact">Contact</NavLink>
+                            {
+                                user?.email && <NavDropdown className="mx-2 text-decoration-none" title="Manage" activeStyle={activeStyle}>
+                                    <NavLink className="mx-2 py-1 d-block text-decoration-none" activeStyle={activeStyle} to="/add/package">Add Package</NavLink>
+                                    <NavLink className="mx-2 py-1 d-block text-decoration-none" activeStyle={activeStyle} to="/manage">Manage Packages</NavLink>
+                                    <NavLink className="mx-2 py-1 d-block text-decoration-none" activeStyle={activeStyle} to="/myPackages">My Packages</NavLink>
+                                </NavDropdown>
+                            }
                         </Nav>
                         <Nav>
                             {
